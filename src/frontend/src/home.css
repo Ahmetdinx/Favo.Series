@@ -1,0 +1,89 @@
+/* Signed-in home: the Favo Kitap flow in Film's burgundy and gold. */
+
+
+
+.film-home{padding:40px 0 10px}
+.film-discovery{margin-bottom:56px}
+.film-discovery>h2{font-size:30px;margin:0 0 20px}
+.discovery-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:22px}
+.discovery-head h1{font:clamp(36px,4vw,54px)/1.1 Georgia,serif;letter-spacing:-1px;margin:0}
+.discovery-refresh{background:none;border:0;color:var(--muted);font-size:13px}
+.discovery-refresh:hover{color:var(--gold)}
+
+/* One quiet line under the heading, as on the Books home: chosen genres and a small Düzenle pill. */
+.film-preferences{margin:6px 0 26px;padding:0 0 14px;border-bottom:1px solid var(--line)}
+.film-preferences-head{display:flex;align-items:center;gap:16px}
+.film-preferences-head>div{flex:1;min-width:0}
+.film-preferences-head p{margin:0;font-size:13px;line-height:1.5;color:var(--muted)}
+.film-preferences-head button{flex-shrink:0;padding:6px 14px;font-size:12px;color:#aee4e6;background:none;border:1px solid #86d6d950;border-radius:999px}
+.film-preferences-head button:hover{background:#86d6d91a}
+.film-preferences form{border-top:1px solid var(--line);margin-top:18px;padding-top:4px}
+.film-preferences fieldset{border:0;padding:0;margin:18px 0}
+.film-preferences legend{font-size:13px;color:#dcf0f1;margin-bottom:12px}
+.film-preferences legend small{color:var(--muted);margin-left:6px}
+
+/* Two featured picks, side by side like two screens */
+.featured-screens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid #86d6d938;border-radius:20px;overflow:hidden;background:linear-gradient(120deg,#24343c,#171c1d)}
+.featured-screen{display:flex;align-items:center;gap:26px;min-width:0;padding:30px 36px}
+.featured-screen+.featured-screen{border-left:1px solid #86d6d928}
+.featured-poster{flex:none;width:132px;aspect-ratio:2/3;border-radius:8px;overflow:hidden;box-shadow:0 14px 28px #000000aa}
+.featured-poster img,.featured-poster .mini-poster-empty{width:100%;height:100%;object-fit:cover}
+.featured-screen>div{min-width:0}
+.featured-screen h2{margin:10px 0 0;font:clamp(20px,2.2vw,26px)/1.2 Georgia,serif;overflow-wrap:anywhere}
+.featured-screen p:not(.kicker){margin:8px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.film-feedback{display:flex;align-items:center;gap:6px;margin-top:16px}
+.film-feedback button{border:1px solid #86d6d955;border-radius:20px;background:#1d262a;color:var(--gold);font-size:12px;padding:7px 13px}
+.film-feedback button:hover{background:#2a363d}
+
+/* Circle feed */
+.circle-feed{margin:34px 0 10px}
+.circle-feed h2{margin:0 0 14px;font-size:24px}
+.circle-feed ol{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.circle-feed li{display:flex;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#1a1f21}
+.circle-poster{flex:none;width:44px;height:66px;border-radius:5px;overflow:hidden}
+.circle-poster img,.circle-poster .mini-poster-empty{width:100%;height:100%;object-fit:cover;font-size:20px}
+.circle-feed li>div{min-width:0;font-size:13px;line-height:1.4}
+.circle-user{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--gold)}
+.circle-user .cinema-avatar{width:22px;height:22px;box-shadow:none}
+.circle-title{display:block;margin-top:3px;font:15px/1.25 Georgia,serif;overflow-wrap:anywhere}
+.circle-meta{display:block;margin-top:3px;font-size:11px;color:var(--muted)}
+.circle-empty{margin:0;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+/* Recommendation shelves and the watchlist */
+.film-shelf{margin-top:36px}
+.film-shelf h3{margin:0 0 14px;font:22px Georgia,serif}
+.film-shelf-perfect h3{color:var(--gold)}
+.film-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px 18px;padding:22px 20px 18px;border-radius:16px;background:linear-gradient(180deg,#181d1f,#131617);border-bottom:3px solid #27333a}
+.film-tile{min-width:0;text-align:center}
+.film-tile-poster{position:relative}
+.film-tile-poster{max-width:150px;margin:0 auto}
+.film-tile-poster>a{display:block;aspect-ratio:2/3;border-radius:8px;overflow:hidden;box-shadow:0 10px 22px #00000088;transition:transform .2s}
+.film-tile-poster>a:hover{transform:translateY(-4px)}
+.film-tile-poster img,.film-tile-poster .mini-poster-empty{width:100%;height:100%;object-fit:cover}
+.film-tile .film-feedback{position:absolute;right:6px;bottom:6px;margin:0;opacity:0;transition:opacity .15s}
+.film-tile .film-feedback button{width:30px;height:30px;padding:0;background:#131617e8}
+.film-tile:hover .film-feedback,.film-tile:focus-within .film-feedback{opacity:1}
+@media(hover:none){.film-tile .film-feedback{opacity:1}}
+.film-tile h4{display:-webkit-box;margin:10px 0 0;overflow:hidden;font:400 14px/1.3 Georgia,serif;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.film-start{margin-top:8px;border:0;background:none;color:var(--gold);font-size:12px;text-decoration:underline;text-underline-offset:4px}
+
+.film-home .rating-band header{align-items:center}
+.film-home .rating-band h2{margin:0}
+
+@media(max-width:1050px){
+  .featured-screens{grid-template-columns:1fr}
+  .featured-screen+.featured-screen{border-left:0;border-top:1px solid #86d6d928}
+  .film-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .film-home{padding-top:24px}
+  .featured-screen{padding:20px 18px;gap:18px}
+  .featured-poster{width:96px}
+  .film-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:42%;overflow-x:auto;padding:16px}
+  
+}
+
+/* "Değerlendir" stays on one line: three films side by side, fewer where they do not fit. */
+.film-home .rating-band ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1050px){.film-home .rating-band ul{grid-template-columns:repeat(2,minmax(0,1fr))}.film-home .rating-band li:nth-child(n+3){display:none}}
+@media(max-width:640px){.film-home .rating-band ul{grid-template-columns:minmax(0,1fr)}.film-home .rating-band li:nth-child(n+2){display:none}}

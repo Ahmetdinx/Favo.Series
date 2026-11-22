@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: series
+      - uses: actions/checkout@v4
+        with:
+          repository: Ahmetdinx/Favo.Books
+          path: books
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: series/global.json
+      - run: dotnet build Favo.Series.slnx -c Release
+        working-directory: series
+      - run: dotnet run --project tests/Favo.Series.Checks -c Release --no-build
+        working-directory: series
+      - run: dotnet run --project tests/Favo.Series.CommunityChecks -c Release -p:BooksRoot=$GITHUB_WORKSPACE/books
+        working-directory: series
+        env:
+          FAVO_BOOKS_ROOT: ${{ github.workspace }}/books
+          FAVO_SERIES_ROOT: ${{ github.workspace }}/series
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: src/frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint

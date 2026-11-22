@@ -1,0 +1,69 @@
+/* Film page buttons: "Hayatımın filmi yap" and "İz bırakanlara ekle". */
+.showcase-picks{margin-top:16px}
+.showcase-pick-buttons{display:flex;flex-wrap:wrap;gap:10px}
+.showcase-pick{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:8px 15px;font-size:13px;color:#aee4e6;background:transparent;border:1px solid #86d6d940;border-radius:999px;transition:background-color .12s ease}
+.showcase-pick svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round}
+.showcase-pick:hover:not(:disabled){background:#86d6d91a}
+.showcase-pick[aria-pressed="true"]{color:#c9eeef;background:#2a485a;border-color:#43789d}
+.showcase-pick[aria-pressed="true"] svg{fill:#86d6d9;stroke:#86d6d9}
+.showcase-confirm{margin-top:12px;padding:16px 18px;border:1px solid #86d6d938;border-radius:12px;background:#171b1d;font-size:13px;color:#c6e5e6}
+.showcase-confirm p{margin:0 0 12px;line-height:1.5}
+.showcase-confirm-actions{display:flex;align-items:center;gap:16px}
+.showcase-confirm-actions .primary{min-height:36px;padding:8px 16px}
+.showcase-slots{display:grid;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.showcase-slots label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.showcase-slots span{color:var(--gold);font-variant-numeric:tabular-nums}
+.showcase-message{margin:10px 0 0;font-size:13px;color:#a9c99a}
+.showcase-message.error{color:#a7d4f0}
+
+/* Profile spread, as on the Books profile: the life film centred under a spotlight, five films on a shelf beside it. */
+.showcase{display:grid;gap:20px;margin:0 0 30px}
+.showcase h2{margin:0;font:600 12px Inter,sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold)}
+.showcase h3{margin:0;font:400 20px/1.3 Georgia,serif;color:#d1f1f2;overflow-wrap:anywhere}
+.showcase h3 a:hover{text-decoration:underline;text-underline-offset:4px}
+.showcase-meta{margin:6px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
+.showcase-life{position:relative;overflow:hidden;display:grid;grid-template-columns:110px minmax(0,1fr);grid-template-areas:"head head" "cover copy";align-items:center;gap:16px 22px;padding:24px 32px;border:1px solid #86d6d930;border-radius:16px;background:radial-gradient(ellipse 70% 60% at 50% 0%,#a0e1e32e,transparent 70%),linear-gradient(180deg,#1f303a,#151a1c)}
+/* Velvet curtain folds at both sides. */
+.showcase-life::before,.showcase-life::after{content:"";position:absolute;top:0;bottom:0;width:16px;background:repeating-linear-gradient(90deg,#1f425a 0 4px,#152e3f 4px 8px);opacity:.55;pointer-events:none}
+.showcase-life::before{left:0}
+.showcase-life::after{right:0}
+.showcase-life>h2{grid-area:head}
+.showcase-life-cover{grid-area:cover;width:110px;aspect-ratio:2/3;overflow:hidden;border-radius:4px;box-shadow:0 0 0 1px #86d6d933,8px 14px 26px #000000cc,0 0 40px #a0e1e31f}
+.showcase-life-cover>a{display:block;height:100%}
+.showcase-life-copy{grid-area:copy;min-width:0}
+.showcase-empty-cover{display:grid;place-content:center;gap:10px;height:100%;text-align:center;color:#94d6d8;border:1px dashed #86d6d960;border-radius:4px;background:linear-gradient(150deg,#223b4a,#1a2125)}
+.showcase-empty-cover span{font:italic 40px Georgia,serif}
+.showcase-empty-cover small{font-size:10px;letter-spacing:1px;line-height:1.5}
+.showcase-link{display:inline-flex;gap:10px;margin-top:14px;font-size:12px;font-weight:600;color:#a1e2e4}
+.showcase-link:hover{text-decoration:underline;text-underline-offset:4px}
+.showcase-influential{min-width:0;padding:22px 22px 14px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#1b2224,#131718)}
+.showcase-influential header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+.showcase-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.showcase-controls>span{margin-right:6px;font-size:12px;color:var(--muted);white-space:nowrap}
+.showcase-controls button{width:38px;height:38px;border:1px solid #86d6d940;border-radius:50%;background:transparent;color:#aee4e6;font-size:16px}
+.showcase-controls button:hover{background:#86d6d91a}
+.showcase-shelf{display:grid;grid-auto-flow:column;grid-auto-columns:min(170px,72%);gap:14px;margin:0;padding:4px 4px 14px;list-style:none;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#4a5d6a transparent}
+.showcase-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0;padding:16px 12px 10px;border-radius:12px;scroll-snap-align:start}
+.showcase-card:not(.empty):hover{background:#ffffff06}
+.showcase-rank{position:absolute;top:10px;right:12px;font:italic 15px Georgia,serif;color:#68b6b9}
+.showcase-card-cover{display:block;width:100px;aspect-ratio:2/3;margin-top:10px;overflow:hidden;border-radius:3px;box-shadow:6px 10px 18px #000000aa;transition:transform .2s}
+.showcase-card-cover:hover{transform:translateY(-3px)}
+.showcase-card-copy{width:100%;text-align:center}
+.showcase-card h3{font-size:15px;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.showcase-card .showcase-meta{font-size:11px}
+.showcase-card.empty{border:1px dashed #86d6d938}
+.showcase-card-add{display:flex;flex:1;flex-direction:column;justify-content:center;align-items:center;gap:10px;min-height:210px;text-align:center;color:var(--muted)}
+.showcase-card-add>span{display:grid;place-items:center;width:44px;height:44px;border:1px solid #86d6d950;border-radius:50%;font-size:22px;color:var(--gold)}
+.showcase-card-add strong{font-size:14px;font-weight:500;color:#dcf0f1}
+.showcase-card-add small{font-size:11px}
+.showcase-card-add:hover>span{background:#86d6d91a}
+.showcase-shelf-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:170px;padding:22px;border:1px dashed #86d6d935;border-radius:12px;text-align:center;font-size:13px;color:var(--muted)}
+.showcase-shelf-empty p{margin:0;max-width:420px;line-height:1.6}
+@media(min-width:900px){
+  .showcase{grid-template-columns:minmax(260px,.8fr) minmax(0,1.6fr);align-items:stretch}
+  .showcase-life{grid-template-columns:1fr;grid-template-areas:"head" "cover" "copy";justify-items:center;align-content:center;text-align:center}
+  .showcase-life-cover{width:140px}
+  .showcase-influential{display:flex;flex-direction:column}
+  .showcase-influential>.showcase-shelf-empty,.showcase-shelf{flex:1}
+}
+@media (prefers-reduced-motion:reduce){.showcase-shelf{scroll-behavior:auto}}

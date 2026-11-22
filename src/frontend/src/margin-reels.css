@@ -1,0 +1,13 @@
+/* Quiet film strips in the page margins; only where the margin beside the 1360px column is wide enough. */
+/* body paints its own background (the root has one too), so it needs its own stacking context for z-index:-1 to sit above it. */
+body{isolation:isolate}
+.margin-reels{display:none}
+@media (min-width:1600px){
+  .margin-reels{--wall:calc((100vw - 1360px) / 2 - 8px);position:fixed;inset:0;z-index:-1;display:block;pointer-events:none}
+  .margin-reel{position:absolute;top:0;width:var(--wall);height:100vh}
+  .margin-reel-left{left:0}
+  /* The right strip mirrors the left one, so both fade toward the content. */
+  .margin-reel-right{right:0;transform:scaleX(-1)}
+}
+@media (min-width:1600px) and (prefers-contrast:more){.margin-reels{display:none}}
+@media print{.margin-reels{display:none}}

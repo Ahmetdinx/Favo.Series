@@ -1,0 +1,57 @@
+/*
+ * Page frame: the header, the content column and the footer use Favo Kitap's measurements one for one
+ * (Favo.Books LibraryTheme.css, App.css, FavoBrand.css, ReaderSearch.css), in Film's burgundy and gold.
+ * Loaded last so it settles the frame; change it together with Kitap's.
+ */
+main,.site-header,footer{width:min(1080px,calc(100% - 48px));margin:0 auto}
+main{padding:30px 0 44px}
+
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+
+/* Brand: mark 36px, "favo" 32px, the section name after a thin rule. */
+.brand{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;white-space:nowrap;color:#dcf0f1}
+.brand-mark{display:block;width:36px;height:36px;mask:url('/brand/favo-mark.png') center/contain no-repeat;background:var(--gold)}
+.brand strong{font:800 32px/1 'Trebuchet MS',Arial,sans-serif;letter-spacing:-1.8px}
+.brand-label{margin-left:4px;padding-left:10px;border-left:1px solid #86d6d940;font:500 12px/1.4 'Trebuchet MS',Arial,sans-serif;letter-spacing:.02em;color:var(--muted)}
+
+/* Search: up to 300px wide, 42px tall. */
+.header-reader-search{flex:1 1 200px;min-width:150px;max-width:300px;margin:0}
+
+/* Navigation: rounded text links, the current page on a soft pill. */
+.site-header nav{display:flex;align-items:center;gap:6px;font-size:16px}
+.site-header nav>a:not(.avatar-nav,.nav-nickname){padding:9px 11px;border-radius:10px;font-size:.85rem;font-weight:650;color:#b0d7d8;transition:color .16s ease,background-color .16s ease}
+.site-header nav>a:not(.avatar-nav,.nav-nickname):is(:hover,[aria-current=page]){color:#cdeff1;background:#86d6d91a}
+.site-header nav .nav-nickname{max-width:160px;padding:0;overflow:hidden;font-size:.78rem;font-weight:400;white-space:nowrap;text-overflow:ellipsis;color:inherit;opacity:.8;background:none}
+.site-header nav .nav-nickname:hover{color:var(--gold);background:none}
+.avatar-nav{display:inline-flex;align-items:center;justify-content:center;padding:4px;border-radius:50%}
+.avatar-nav[aria-current=page]{background:#86d6d91f}
+.avatar-nav .cinema-avatar{width:38px;height:38px}
+.nav-signout{margin:0;padding:0;border:0;background:none;font:inherit;color:#dcf0f1;cursor:pointer}
+.nav-signout:hover:not(:disabled){text-decoration:underline}
+.site-header nav .account-link{padding:9px 11px;border:0;border-radius:10px;font-size:.85rem;font-weight:650;color:#b0d7d8;background:none}
+.site-header nav .account-link:hover{color:#cdeff1;background:#86d6d91a}
+
+footer{display:block;margin-top:0;padding:24px 0 30px;border-top:1px solid var(--line);font-size:.84rem;text-align:center;color:var(--muted)}
+
+@media(max-width:1000px){
+  .site-header{flex-wrap:wrap}
+  .header-reader-search{margin-left:auto}
+  .site-header nav{flex:1 0 100%;justify-content:center;flex-wrap:wrap}
+}
+@media(max-width:720px){
+  .site-header{flex-direction:column;align-items:flex-start;gap:18px}
+  .site-header nav{width:100%;flex-wrap:wrap}
+}
+@media(max-width:680px){
+  main,.site-header,footer{width:calc(100% - 32px)}
+  .site-header{flex-wrap:wrap;gap:12px}
+  .site-header nav{flex-wrap:wrap;gap:2px}
+  .site-header nav .nav-nickname{display:none}
+  main{padding-top:22px}
+}
+@media(max-width:480px){
+  .site-header .brand-mark{width:30px;height:30px}
+  .site-header .brand strong{font-size:28px}
+  .site-header .brand{gap:6px}
+}
+@media(max-width:400px){.header-reader-search{flex-basis:100%;max-width:none}}

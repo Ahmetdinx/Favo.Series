@@ -1,0 +1,24 @@
+/* Share sheet: the Books dialog in cinema colours. */
+.share-sheet{width:min(100vw - 32px,520px);max-height:calc(100dvh - 32px);padding:0;color:#dcf0f1;background:#1a2022;border:1px solid #86d6d933;border-radius:16px;box-shadow:0 24px 60px #000000aa}
+.share-sheet::backdrop{background:#090c0dc4}
+.share-sheet-panel{display:flex;flex-direction:column;gap:14px;padding:18px 20px 20px;text-align:left}
+.share-sheet header{display:flex;align-items:center;justify-content:space-between}
+.share-sheet h2{margin:0;font:400 22px Georgia,serif;color:#e0f5f6}
+.share-sheet-close{width:34px;height:34px;font-size:15px;color:var(--muted);background:none;border:0;border-radius:50%}
+.share-sheet-close:hover{background:#ffffff12}
+.share-sheet-formats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.share-sheet-formats button{display:flex;flex-direction:column;gap:2px;padding:9px 12px;text-align:left;color:#dcf0f1;background:#20272a;border:1px solid #86d6d933;border-radius:10px}
+.share-sheet-formats button[aria-checked="true"]{background:#2c3f4a;border-color:var(--gold)}
+.share-sheet-formats strong{font-size:14px}
+.share-sheet-formats span{font-size:11px;color:var(--muted)}
+.share-sheet-preview{display:grid;place-items:center;height:min(52dvh,460px);overflow:hidden;background:#0000003d;border-radius:10px}
+.share-sheet-preview img{max-width:100%;max-height:min(52dvh,460px);object-fit:contain;border-radius:6px;box-shadow:0 8px 22px #000000aa}
+.share-sheet-preview span{font-size:13px;color:var(--muted)}
+.share-sheet-actions{display:flex;flex-wrap:wrap;gap:8px}
+.share-sheet-actions .primary{flex:1 1 140px}
+.share-sheet-message{margin:0;font-size:13px;color:#a9c99a}
+.share-sheet-note{margin:0;font-size:12px;color:var(--muted)}
+/* Small share buttons used on the identity card, the referral chip and the film page. */
+.film-share-button{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;font-size:13px;font-weight:600;color:#cdebec;background:transparent;border:1px solid #86d6d966;border-radius:999px}
+.film-share-button:hover{background:#86d6d91a;color:var(--gold)}
+.film-share-button svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
