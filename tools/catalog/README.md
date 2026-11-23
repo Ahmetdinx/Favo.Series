@@ -31,6 +31,7 @@ Kurallar:
 - Bir parti kimliği farklı içerikle yeniden kullanılamaz; aynı manifesti tekrar uygulamak değişiklik yapmaz.
 - Doğrulama, manifest dosyasının SHA-256 değerini kaydeder; manifest sonradan değişirse içe aktarma reddedilir.
 - Kararlar yalnızca eklenir. Bir filmi gizlemek için yeni bir `Hidden` kararı eklenir; geçmiş silinmez. Katalogda yalnızca son kararı `Film` olanlar görünür.
+- Tür kurallarının yakalayamadığı yarışma, talk şov ve müzik programları `data/curation/excluded.tsv` dosyasına (WikidataId<TAB>Ad<TAB>Neden) yazılır; `prepare-manifest.mjs` bunları bir daha önermez. Katalogda zaten olanlar ayrıca bir `Hidden` kararıyla gizlenir.
 - Türler Kitap'taki gibi sabit bir listedir (TMDB numaralarıyla uyumlu 18 tür). Wikidata türleri `records.mjs` içindeki kurallarla eşlenir; her partide `genre-map.tsv` ve `review.tsv` incelenir.
 - Wikidata'ya istekler sırayla ve beklemeli yapılır; 429 gelirse `Retry-After`'a uyulur. Kesilen bir çekme önbellekten devam eder.
 - Vikipedi metinleri kopyalanmaz (CC BY-SA). Afiş için lisans alınana kadar `poster_url` boş kalır.

@@ -3,7 +3,7 @@
 // Up to <turkish> places go to the best-known Turkish series (they have few language editions and would
 // otherwise never make the cut); the rest are the best-known series overall. Series already in an earlier batch (any data/curation/*/manifest.json) are skipped; numbering continues after them.
 // Reads artifacts/catalog/candidates.json + labels.json; writes data/curation/<batch>/manifest.json, review.tsv, genre-map.tsv.
-import { existsSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { buildRecord, genreRules } from './records.mjs'
 import { readJson, writeJson } from './wikidata.mjs'
 
@@ -15,7 +15,9 @@ const currentYear = new Date().getUTCFullYear()
 
 const earlier = readdirSync('data/curation').filter(d => d !== batch && existsSync(`data/curation/${d}/manifest.json`))
   .flatMap(d => readJson(`data/curation/${d}/manifest.json`, []))
-const taken = new Set(earlier.map(r => r.WikidataId))
+// data/curation/excluded.tsv (WikidataId<TAB>Title<TAB>Reason): programs the genre rules miss (contests, talk shows); never offered again.
+const excluded = existsSync('data/curation/excluded.tsv') ? readFileSync('data/curation/excluded.tsv', 'utf8').split(/\r?\n/).map(l => l.split('\t')[0]).filter(id => /^Q\d+$/.test(id)) : []
+const taken = new Set([...earlier.map(r => r.WikidataId), ...excluded])
 const first = earlier.reduce((max, r) => Math.max(max, r.Number), 0)
 const built = candidates.filter(f => !taken.has(f.wikidataId)).map(facts => ({ facts, ...buildRecord(facts, labels, currentYear) }))
 const eligible = built.filter(b => b.hidden.length === 0)
